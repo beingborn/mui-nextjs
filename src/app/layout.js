@@ -6,7 +6,7 @@ import { useEffect, useState} from 'react'
 import "./globals.css";
 
 // Component
-import Sidebar from './layouts/Sidebar';
+import Sidebar from './layouts/Lnb/Sidebar';
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Breadcrumb from './layouts/Breadcrumb';

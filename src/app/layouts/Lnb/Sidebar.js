@@ -1,22 +1,22 @@
+// 하위 컴포넌트를 렌더링, 비컴포넌트화 Typography, Logo import
+
+// 하위 컴포넌트
+import {LnbAside, LnbHeader} from './styles'
+
+import {Logo} from '../../assets/logo/index'
+import {Typography} from '@mui/material'
+
 import styled from '@emotion/styled'
-import {root} from '../global-variables'
-import {Logo} from '../assets/logo/index'
-import { Typography } from '@mui/material'
+import {root} from '../../global-variables'
+
 import Link from 'next/link'
 import {useState} from 'react'
 
 // Lnb 임시 데이터
-import LnbContent from '../assets/data/LnbContent'
+import LnbContent from '../../assets/data/LnbContent'
 
-const LnbAside = styled.aside`
-    flex-basis: 260px;
-    background-color: #dbdfeb;
-`
-const LnbHeader = styled.div`
-    padding: 24px;
-    border-bottom: 1px solid ${root.colors.textPri};
-    text-align: center;
-`
+
+
 
 const LogoWrap = styled.div`
     gap: 8px;
@@ -33,6 +33,7 @@ const LogoWrap = styled.div`
 `
 
 const LnbBody = styled.div``
+const LnbNav = styled.div``
 const LnbDepth1List = styled.ul``
 const LnbDepth1 = styled.li`
     &:not(:first-of-type) > button {
@@ -71,11 +72,14 @@ const LnbDepth2List = styled.ul`
     }
 `
 const LnbDepth2 = styled.li`
-
     > a {
         display: block;
         line-height: 32px;
         padding: 0 16px;
+
+        &.is-active {
+            background-color: #2e80eb40;
+        }
 
         &:hover {
             background-color: #2e80eb40;
@@ -83,14 +87,13 @@ const LnbDepth2 = styled.li`
     }
 `
 
-
+// 각각 다른 isActive, setIsActive를 갖게 하는 방법 : styled와 분리리
 export default function Sidebar() {
     const [isActive, setisActive] = useState(null);
     const toggleActive = (index) => {
         // prev 이전 값
         setisActive(prev => (prev === index) ? null : index)
     }
-
 
     return (
         <LnbAside>
@@ -103,19 +106,15 @@ export default function Sidebar() {
                 </LogoWrap>
             </LnbHeader>
             <LnbBody>
-                <nav>
+                <LnbNav>
                     <LnbDepth1List>
-                        {
-                            LnbContent.map((lnb1depth, index)=> {
+                        {LnbContent.map((lnb1depth, index)=> {
                                 return lnb1depth.list ? (
                                     <LnbDepth1 key={index}>
-                                        <button 
-                                        onClick={
-                                            () => toggleActive(index)
-                                        }
+                                        <button onClick={() => toggleActive(index)}
                                         className={index === isActive ? 'is-active' : ''}
                                         >
-                                                {lnb1depth.name}
+                                            {lnb1depth.name}
                                         </button>
                                             <LnbDepth2List className={index === isActive ? 'is-active' : ''}>
                                             {
@@ -141,7 +140,7 @@ export default function Sidebar() {
                             })
                         }
                     </LnbDepth1List>
-                </nav>
+                </LnbNav>
             </LnbBody>
         </LnbAside>
     )

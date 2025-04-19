@@ -50,9 +50,21 @@ const LnbContent = [
             },
             {
                 name: '수강생 관리',
-                href: '/pages/online/students'
-                
+                href: '/pages/online/students'   
             }
+        ]
+    },
+    { 
+        name: 'UI 컴포넌트',
+        list : [
+            {
+                name: 'Table',
+                href: '/pages/components/table'
+            },
+            {
+                name: 'Tab',
+                href: '/pages/components/tab'
+            },
         ]
     },
 ]
