@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import ButtonUsage from '../components/Buttons';
-import SettingSvg from '../assets/icons/ico_setting.svg'
+import {SettingSvg} from '@/src/app/assets/icons/index'
+
 
 const StyledSpan = styled.span` // Styled 컴포넌트 : a태그를 스타일링한 컴포넌트
     font-size: 20px;           // 원하는 CSS 속성들을 작성. ,가 아닌 ;로 여러 속성 지정 가능
@@ -20,7 +21,7 @@ export default function Header() {
 
     return (
         <header>
-            <SettingSvg/>
+            <SettingSvg width="32" height="32"/>
             <nav>
                 <ul className='gnb'>
                     {  
