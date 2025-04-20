@@ -1,15 +1,17 @@
 "use client"
 
 import Link from 'next/link';
-import styled from 'styled-components';
+import {css} from '@emotion/css'
+import styled from '@emotion/styled'
 import ButtonUsage from '../components/Buttons';
 import {SettingSvg} from '@/src/app/assets/icons/index'
 
 
-const StyledSpan = styled.span` // Styled 컴포넌트 : a태그를 스타일링한 컴포넌트
-    font-size: 20px;           // 원하는 CSS 속성들을 작성. ,가 아닌 ;로 여러 속성 지정 가능
-    color: red;                // CSS 속성명은 kebab-case 로 작성
+const StyleSpan = styled.span`
+    color: red;
+    backgroundColor: blue;
 `
+
 
 export default function Header() {
     let gnbLinks = [
@@ -21,17 +23,21 @@ export default function Header() {
 
     return (
         <header>
-            <SettingSvg width="32" height="32"/>
+            <SettingSvg width="32" stroke="red" fill="yellow"/>
             <nav>
                 <ul className='gnb'>
                     {  
                         gnbLinks.map((gnbLink, index) => {
                             return (
                                 <li key={index} className="gnb-item">
-                                    <Link href={gnbLink.href}>
-                                        <StyledSpan>
+                                    <Link href={gnbLink.href}
+                                    className={css`
+                                        background-color: hotpink;
+                                        font-size: 24px;
+                                        border-radius: 4px;
+                                    `}
+                                    >
                                             {gnbLink.name}
-                                        </StyledSpan>
                                     </Link>
                                 </li>
                             )
@@ -40,6 +46,9 @@ export default function Header() {
                 </ul>
             </nav>
             <ButtonUsage bg="yellow" color="brown"></ButtonUsage>
+            <StyleSpan>
+                안녕하세요.
+            </StyleSpan>
         </header>
     );
 }

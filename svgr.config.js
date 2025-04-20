@@ -1,15 +1,15 @@
 module.exports = {
-  icon: true,
-  endProps: 'start',
+  expandProps: 'start',
   svgProps: {
-    width: '{props.width || "1em"}',
-    height: '{props.height || "1em"}',
-    fill: '{props.color || "currentColor"}',
-    stroke: '{props.strokeColor || "currentColor"}',
+    width: '{props.width || "16px"}',
+    height: '{props.width || "16px"}',
+    fill: '{props.fill || "currentColor"}',
+    stroke: '{props.stroke || "currentColor"}',
     preserveAspectRatio: 'xMidYMid meet',  // 중앙기준 Sclae
   },
   replaceAttrValues: {
-    '#000': 'currentColor', // 검정색 고정값을 currentColor로 대체
-    '#000000': 'currentColor',
+    // 6진수 3진수 => currentColor로 초기화
+    "/#[0-9A-F]{6}/g": "currentColor",
+    "/#[0-9A-F]{3}/g": "currentColor"
   },
 };
