@@ -5,13 +5,7 @@ import {css} from '@emotion/css'
 import styled from '@emotion/styled'
 import ButtonUsage from '../components/Buttons';
 import {SettingSvg} from '@/src/app/assets/icons/index'
-
-
-const StyleSpan = styled.span`
-    color: red;
-    backgroundColor: blue;
-`
-
+import { root } from '../global-variables';
 
 export default function Header() {
     let gnbLinks = [
@@ -22,7 +16,20 @@ export default function Header() {
     ]
 
     return (
-        <header>
+        <header className={
+            css`
+                .gnb {
+                    display: flex;
+                    align-items: center;
+
+                    &-item {
+                        ${root.flexSet('center', 'center')};
+                        color: red!important;
+                        background-color: ${root.colors.textSec};
+                    }
+                }
+            `
+        }>
             <SettingSvg width="32" stroke="red" fill="yellow"/>
             <nav>
                 <ul className='gnb'>
@@ -32,7 +39,6 @@ export default function Header() {
                                 <li key={index} className="gnb-item">
                                     <Link href={gnbLink.href}
                                     className={css`
-                                        background-color: hotpink;
                                         font-size: 24px;
                                         border-radius: 4px;
                                     `}
@@ -45,10 +51,7 @@ export default function Header() {
                     }
                 </ul>
             </nav>
-            <ButtonUsage bg="yellow" color="brown"></ButtonUsage>
-            <StyleSpan>
-                안녕하세요.
-            </StyleSpan>
+            <ButtonUsage bg="yellow" color="brown">공통 MUI 버튼</ButtonUsage>
         </header>
     );
 }

@@ -1,12 +1,15 @@
 "use client"
 
 import localFont from 'next/font/local'
-import {css} from '@emotion/css'
 import styled from '@emotion/styled'
+import { useEffect, useState} from 'react'
 import "./globals.css";
 
 // Component
 import Header from './layouts/Header'
+import Sidebar from './layouts/Sidebar'
+import Footer from './layouts/Footer'
+import Breadcrumb from './layouts/Breadcrumb';
 
 const pretendard = localFont({
     src: "./assets/fonts/PretendardVariable.woff2",
@@ -17,39 +20,39 @@ const pretendard = localFont({
 
 const Wrapper = styled.div`
     display: flex;
-    
-    aside {
-        color: blue;
+    min-height: ${props => (props.minH) ? props.minH : '100vh'};
+
+    main {
+        flex-grow: 1;
     }
-`
-const Sidebar = styled.aside`
-    flex-basis: 260px;
-`
-
-const Main = styled.main`
-    flex-grow: 1;
-`
-
-const Footer = styled.footer`
-    color: blue;
 `
 
 export default function RootLayout({ children }) {
+    const [minH, setminH] = useState(0);
+    const [isReady, setisReady] = useState(false);
+
+    useEffect(() => {
+        const footerH = document.querySelector('footer')?.offsetHeight;
+        const totalH = `calc(100vh - (${footerH}px))`
+        
+        setminH(totalH)
+        setisReady(true)
+    })
+
     return (
         <html lang="ko">
             <body className={pretendard.className}>
-                <Header/>
-                    <Wrapper>
-                        <Sidebar>
-                            LNB
-                        </Sidebar>
-                        <Main>
+                {isReady &&
+                    <Wrapper minH={minH}>
+                        <Sidebar/>
+                        <main>
+                            <Header/>
+                            <Breadcrumb/>
                             {children}
-                        </Main>
+                        </main>
                     </Wrapper>
-                <Footer>
-                    푸터
-                </Footer>
+                }
+                <Footer/>
             </body>
         </html>
     );
