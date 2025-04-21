@@ -10,6 +10,7 @@ import Header from './layouts/Header'
 import Sidebar from './layouts/Sidebar'
 import Footer from './layouts/Footer'
 import Breadcrumb from './layouts/Breadcrumb';
+import Container from './layouts/Container';
 
 const pretendard = localFont({
     src: "./assets/fonts/PretendardVariable.woff2",
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
                         <Sidebar/>
                         <main>
                             <Header/>
+                            <Container/>
                             <Breadcrumb/>
                             {children}
                         </main>
