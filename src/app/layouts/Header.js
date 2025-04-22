@@ -9,10 +9,10 @@ import { root } from '../global-variables';
 
 export default function Header() {
     let gnbLinks = [
-        { name: 'About', href : 'pages/about'},
-        { name: 'Ui', href : 'pages/ui'},
-        { name: 'Icons', href : 'pages/icons'},
-        { name: 'Tables', href : 'pages/tables'},
+        { name: 'About', href : '/pages/about'},
+        { name: 'Ui', href : '/pages/ui'},
+        { name: 'Icons', href : '/pages/icons'},
+        { name: 'Tables', href : '/pages/tables'},
     ]
 
     return (
@@ -30,6 +30,7 @@ export default function Header() {
                 }
             `
         }>
+            <div>
             <SettingSvg width="32" stroke="red" fill="yellow"/>
             <nav>
                 <ul className='gnb'>
@@ -52,6 +53,7 @@ export default function Header() {
                 </ul>
             </nav>
             <ButtonUsage bg="yellow" color="brown">공통 MUI 버튼</ButtonUsage>
+            </div>
         </header>
     );
 }

@@ -5,14 +5,10 @@ import Link from '@mui/material/Link';
 
 export default function Breadcrumb(){
     const paths = usePathname();
-    const pathNames = paths.split("/").filter((path) => path)
-
+    const pathNames = paths.split("/").filter((path) => path && !path.includes('pages'))
+    
     return(
-        <Breadcrumbs aria-label="breadcrumb" separator="›" 
-        className={css`
-            padding-left: 20px;
-            padding-top: 20px;
-        `} >
+        <Breadcrumbs aria-label="breadcrumb" separator="›">
             <Link underline="hover" color="inherit" href="/">
                 Home
             </Link>

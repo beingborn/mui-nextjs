@@ -6,11 +6,11 @@ import { useEffect, useState} from 'react'
 import "./globals.css";
 
 // Component
+import Sidebar from './layouts/Sidebar';
 import Header from './layouts/Header'
-import Sidebar from './layouts/Sidebar'
 import Footer from './layouts/Footer'
 import Breadcrumb from './layouts/Breadcrumb';
-import Container from './layouts/Container';
+import Title from './components/Title'
 
 const pretendard = localFont({
     src: "./assets/fonts/PretendardVariable.woff2",
@@ -25,6 +25,10 @@ const Wrapper = styled.div`
 
     main {
         flex-grow: 1;
+    }
+
+    .inner {
+        padding: 20px;
     }
 `
 
@@ -48,9 +52,11 @@ export default function RootLayout({ children }) {
                         <Sidebar/>
                         <main>
                             <Header/>
-                            <Container/>
-                            <Breadcrumb/>
-                            {children}
+                            <div className='inner'>
+                                <Breadcrumb/>
+                                <Title/>
+                                {children}
+                            </div>
                         </main>
                     </Wrapper>
                 }
