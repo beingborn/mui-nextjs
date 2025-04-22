@@ -16,8 +16,7 @@ const LnbHeader = styled.div`
 const LnbBody = styled.div``
 
 const LogoWrap = styled.div`
-    display: flex;
-    align-items: center;
+    ${root.flexSet('center', 'start')}
     gap: 8px;
 
     > p {
@@ -75,7 +74,7 @@ export default function Sidebar() {
                                             {
                                                 lnb1depth.list.map((lnb2depth, index)=> {
                                                     return (
-                                                        <li>
+                                                        <li key={index}>
                                                             {lnb2depth.name}
                                                         </li>
                                                     )
