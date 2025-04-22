@@ -1,11 +1,28 @@
 "use client"
 
 import Link from 'next/link';
-import {css} from '@emotion/css'
 import styled from '@emotion/styled'
 import ButtonUsage from '../components/Buttons';
 import {SettingSvg} from '@/src/app/assets/icons/index'
 import { root } from '../global-variables';
+
+const HeaderTag = styled.header`
+`
+const GnbList = styled.ul`
+    display: flex;
+    align-items: center;
+`
+
+const GnbItem = styled.li`
+    ${root.flexSet('center', 'center')};
+    color: red!important;
+    background-color: ${root.colors.textSec};
+
+    > a {
+        font-size: 24px;
+        border-radius: 4px;
+    }
+`
 
 export default function Header() {
     let gnbLinks = [
@@ -16,45 +33,27 @@ export default function Header() {
     ]
 
     return (
-        <header className={
-            css`
-                .gnb {
-                    display: flex;
-                    align-items: center;
-
-                    &-item {
-                        ${root.flexSet('center', 'center')};
-                        color: red!important;
-                        background-color: ${root.colors.textSec};
-                    }
-                }
-            `
-        }>
+        <HeaderTag>
             <div>
-            <SettingSvg width="32" stroke="red" fill="yellow"/>
-            <nav>
-                <ul className='gnb'>
-                    {  
-                        gnbLinks.map((gnbLink, index) => {
-                            return (
-                                <li key={index} className="gnb-item">
-                                    <Link href={gnbLink.href}
-                                    className={css`
-                                        font-size: 24px;
-                                        border-radius: 4px;
-                                    `}
-                                    >
+                <nav>
+                    <GnbList>
+                        {  
+                            gnbLinks.map((gnbLink, index) => {
+                                return (
+                                    <GnbItem key={index}>
+                                        <Link href={gnbLink.href} >
                                             {gnbLink.name}
-                                    </Link>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </nav>
-            <ButtonUsage bg="yellow" color="brown">공통 MUI 버튼</ButtonUsage>
+                                        </Link>
+                                    </GnbItem>
+                                )
+                            })
+                        }
+                    </GnbList>
+                </nav>
+                <ButtonUsage bg="yellow" color="brown">공통 MUI 버튼</ButtonUsage>
+                <SettingSvg width="32" />
             </div>
-        </header>
+        </HeaderTag>
     );
 }
 

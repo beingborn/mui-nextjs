@@ -7,37 +7,37 @@ export const TitleWrap = styled.div`
 `
 
 export const MainTitle = `
-  font-size: 32px;
-  font-weight: 700;
+    font-size: 32px;
+    font-weight: 700;
 `;
 
 export const SubTitle = `
-  font-size: 24px;
-  font-weight: 500;
+    font-size: 24px;
+    font-weight: 500;
 `;
 
 function getTitle(tit){
-  switch (tit) {
+switch (tit) {
     case 'main':
-      return MainTitle;
+    return MainTitle;
     case 'sub':
-      return SubTitle;
+    return SubTitle;
     default:
-      return MainTitle;
-  }
+    return MainTitle;
+}
 }
 
 function getTitleText(title) {
-  switch (title) {
-    case 'about':
-      return '어바웃';
-    case 'ui':
-      return '컴포넌트';
-    case 'icons':
-      return '아이콘';
-    default:
-      return '';
-  }
+    switch (title) {
+        case 'about':
+            return '어바웃';
+        case 'ui':
+            return '컴포넌트';
+        case 'icons':
+            return '아이콘';
+        default:
+            return '';
+        }
 }
 
 // props로 variant main > 받으면 MainTitle sub > SubTitle 반환
