@@ -17,28 +17,39 @@ export const SubTitle = `
 `;
 
 function getTitle(tit){
-switch (tit) {
-    case 'main':
-    return MainTitle;
-    case 'sub':
-    return SubTitle;
-    default:
-    return MainTitle;
+    switch (tit) {
+        case 'main':
+        return MainTitle;
+        case 'sub':
+        return SubTitle;
+        default:
+        return MainTitle;
+    }
 }
+
+const titleMap = {
+    about  : '어바웃',
+    ui     : '컴포넌트',
+    icons  : '아이콘'
 }
 
 function getTitleText(title) {
-    switch (title) {
-        case 'about':
-            return '어바웃';
-        case 'ui':
-            return '컴포넌트';
-        case 'icons':
-            return '아이콘';
-        default:
-            return '';
-        }
+    return titleMap[title] || '';
 }
+
+
+// function getTitleText(title) {
+//     switch (title) {
+//         case 'about':
+//             return '어바웃';
+//         case 'ui':
+//             return '컴포넌트';
+//         case 'icons':
+//             return '아이콘';
+//         default:
+//             return '';
+//         }
+// }
 
 // props로 variant main > 받으면 MainTitle sub > SubTitle 반환
 export default function Title({children, tit}) {
@@ -48,11 +59,11 @@ export default function Title({children, tit}) {
     const textStyle = getTitle(tit)
     
     return (
-      <TitleWrap>
+        <TitleWrap>
             <h2 className={css` ${textStyle} `}>
                 {title}
                 {children}
             </h2>
-      </TitleWrap>
+        </TitleWrap>
     )      
 }

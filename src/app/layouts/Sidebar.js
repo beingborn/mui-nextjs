@@ -1,7 +1,8 @@
-import {Logo} from '../assets/logo/index'
 import styled from '@emotion/styled'
 import {root} from '../global-variables'
+import {Logo} from '../assets/logo/index'
 import { Typography } from '@mui/material'
+import Link from 'next/link'
 
 const LnbAside = styled.aside`
     flex-basis: 260px;
@@ -12,8 +13,6 @@ const LnbHeader = styled.div`
     border-bottom: 1px solid #000;
     text-align: center;
 `
-
-const LnbBody = styled.div``
 
 const LogoWrap = styled.div`
     ${root.flexSet('center', 'start')}
@@ -26,28 +25,56 @@ const LogoWrap = styled.div`
     }
 `
 
+const LnbBody = styled.div``
+
+
+
+
 const lnbContent = [
     { 
-        name: 'About',   
+        name: '콘텐츠',   
         href : '/pages/about',
         list : [
             {
-                name: '뎁스2',
+                name: '콘텐츠관리',
+                href: '/pages/content/'
+            }
+            ,
+            {
+                name: '설문관리',
+                href: '/pages/content/'
+            },
+            {
+                name: '과제관리',
+                href: '/pages/content/'
+                
+            }
+        ]
+    },
+    { 
+        name: '강사 관리',
+        href : '/pages/ui',
+        list : [
+            {
+                name: '강사관리',
                 href: '/pages/about/'
             }
             ,
             {
-                name: '뎁스2임',
+                name: '강사 Q&A',
                 href: '/pages/about/'
             },
             {
-                name: '뎁스2 출력완료',
+                name: '강사 페이지 관리',
                 href: '/pages/about/'
+                
             }
         ]
     },
-    { name: 'Ui', href : '/pages/ui'},
-    { name: 'Icons', href : '/pages/icons'},
+    { 
+        name: 'Icons',
+        href : '/pages/icons'
+    },
     { name: 'Cetner', href : '/pages/icons'},
     { name: 'Cetner22', href : '/pages/icons'},
 ]
@@ -75,7 +102,9 @@ export default function Sidebar() {
                                                 lnb1depth.list.map((lnb2depth, index)=> {
                                                     return (
                                                         <li key={index}>
-                                                            {lnb2depth.name}
+                                                            <Link>
+                                                                {lnb2depth.name}
+                                                            </Link>
                                                         </li>
                                                     )
                                                 })   
