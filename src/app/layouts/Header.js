@@ -22,8 +22,7 @@ const HeaderWrap = styled.div`
 `
 
 const HeaderUtils = styled.div`
-    ${root.flexSet('center')}  
-    gap: 8px;
+    ${root.flexSet('center', 'center')} 
 `
 
 export default function Header() {
@@ -35,10 +34,7 @@ export default function Header() {
                 </HeaderTit>
                 <HeaderUtils>
                     <Link href="#">
-                        <IcoHamburger width="40"></IcoHamburger>
-                    </Link>
-                    <Link href="#">
-                        <IcoLogout width="40"></IcoLogout>
+                        <IcoHamburger width="24" height="24"></IcoHamburger>
                     </Link>
                 </HeaderUtils>
             </HeaderWrap>
