@@ -1,11 +1,21 @@
 import { usePathname } from "next/navigation";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from '@mui/material/Link';
+import getTitleUtils from '../utils/getText'
 
 export default function Breadcrumb(){
     const paths = usePathname();
     const pathNames = paths.split("/").filter((path) => path && !path.includes('pages'))
-    
+    const updatePathKor = (arr) => {
+        arr.map((item,i) => {
+            const pathKor = getTitleUtils.getTitleText(item);
+            arr[i] = pathKor;
+        })
+
+        return arr;
+    }
+    updatePathKor(pathNames)
+
     return(
         <Breadcrumbs aria-label="breadcrumb" separator="›">
             <Link underline="hover" color="inherit" href="/">

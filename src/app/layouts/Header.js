@@ -1,58 +1,47 @@
 "use client"
 
-import Link from 'next/link';
 import styled from '@emotion/styled'
-import ButtonUsage from '../components/Buttons';
-import {SettingSvg} from '@/src/app/assets/icons/index'
-import { root } from '../global-variables';
+import { root } from '../global-variables'
+import { IcoHamburger, IcoLogout } from '../assets/icons'
+import Link from 'next/link'
 
 const HeaderTag = styled.header`
-`
-const GnbList = styled.ul`
-    display: flex;
-    align-items: center;
+    height: 80px;
+    background-color: #eee;
+    align-content: center;
+    padding: 0 16px;
 `
 
-const GnbItem = styled.li`
-    ${root.flexSet('center', 'center')};
-    color: red!important;
-    background-color: ${root.colors.textSec};
+const HeaderTit = styled.h2`
+    font-size: 24px;
+`
 
-    > a {
-        font-size: 24px;
-        border-radius: 4px;
-    }
+const HeaderWrap = styled.div`
+    ${root.flexSet('center')}
+    gap: 20px;
+`
+
+const HeaderUtils = styled.div`
+    ${root.flexSet('center')}  
+    gap: 8px;
 `
 
 export default function Header() {
-    let gnbLinks = [
-        { name: 'About', href : '/pages/about'},
-        { name: 'Ui', href : '/pages/ui'},
-        { name: 'Icons', href : '/pages/icons'},
-        { name: 'Tables', href : '/pages/tables'},
-    ]
-
     return (
         <HeaderTag>
-            <div>
-                <nav>
-                    <GnbList>
-                        {  
-                            gnbLinks.map((gnbLink, index) => {
-                                return (
-                                    <GnbItem key={index}>
-                                        <Link href={gnbLink.href} >
-                                            {gnbLink.name}
-                                        </Link>
-                                    </GnbItem>
-                                )
-                            })
-                        }
-                    </GnbList>
-                </nav>
-                <ButtonUsage bg="yellow" color="brown">공통 MUI 버튼</ButtonUsage>
-                <SettingSvg width="32" />
-            </div>
+            <HeaderWrap>
+                <HeaderTit>
+                    ADMIN SYSTEM
+                </HeaderTit>
+                <HeaderUtils>
+                    <Link href="#">
+                        <IcoHamburger width="40"></IcoHamburger>
+                    </Link>
+                    <Link href="#">
+                        <IcoLogout width="40"></IcoLogout>
+                    </Link>
+                </HeaderUtils>
+            </HeaderWrap>
         </HeaderTag>
     );
 }

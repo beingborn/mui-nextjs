@@ -3,7 +3,7 @@ import {root} from '../global-variables'
 import {Logo} from '../assets/logo/index'
 import { Typography } from '@mui/material'
 import Link from 'next/link'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 // Lnb 임시 데이터
 import LnbContent from '../assets/data/LnbContent'
@@ -14,25 +14,28 @@ const LnbAside = styled.aside`
 `
 const LnbHeader = styled.div`
     padding: 24px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid ${root.colors.textPri};
     text-align: center;
 `
 
 const LogoWrap = styled.div`
-    ${root.flexSet('center', 'start')}
     gap: 8px;
 
-    > p {
-        color: #000;
-        font-weight: 700;
-        font-size: 20px;
+    > a {
+        ${root.flexSet('center', 'start')}
+
+        p {
+            color: #000;
+            font-weight: 700;
+            font-size: 20px;
+        }
     }
 `
 
 const LnbBody = styled.div``
 const LnbDepth1List = styled.ul``
 const LnbDepth1 = styled.li`
-    &:not(:first-child) > button {
+    &:not(:first-of-type) > button {
         border-top: 1px solid #000;
     }
 
@@ -42,21 +45,43 @@ const LnbDepth1 = styled.li`
 
     > button {
         width: 100%;
-        line-height: 40px;
+        line-height: 44px;
         padding: 0 16px;
         text-align: left;
-        
+        font-weight: 700;
+        font-size: 18px;
+
+        &:not(.is-active):hover {
+            background-color: ${root.colors.pri};
+            color: #fff;
+        }
+
+        &.is-active {
+            background-color: ${root.colors.pri};
+            color: #fff;
+        }
     }
 `
 const LnbDepth2List = styled.ul`
     display: none;
-    border: 1px solid red;
+    background-color: #2e80eb20;
 
     &.is-active {
         display: block;
     }
 `
-const LnbDepth2 = styled.li``
+const LnbDepth2 = styled.li`
+
+    > a {
+        display: block;
+        line-height: 32px;
+        padding: 0 16px;
+
+        &:hover {
+            background-color: #2e80eb40;
+        }
+    }
+`
 
 
 export default function Sidebar() {
@@ -66,12 +91,15 @@ export default function Sidebar() {
         setisActive(prev => (prev === index) ? null : index)
     }
 
+
     return (
         <LnbAside>
             <LnbHeader>
                 <LogoWrap>
-                    <Logo width="80" height="auto" fill="yellow" stroke="#333"></Logo>
-                    <Typography variant='body2'>리액트 관리자</Typography>
+                    <Link href="/">
+                        <Logo width="80" height="auto" fill="yellow" stroke="#333"></Logo>
+                        <Typography variant='body2'>리액트 관리자</Typography>
+                    </Link>
                 </LogoWrap>
             </LnbHeader>
             <LnbBody>
@@ -81,7 +109,12 @@ export default function Sidebar() {
                             LnbContent.map((lnb1depth, index)=> {
                                 return lnb1depth.list ? (
                                     <LnbDepth1 key={index}>
-                                        <button onClick={() => toggleActive(index)}>
+                                        <button 
+                                        onClick={
+                                            () => toggleActive(index)
+                                        }
+                                        className={index === isActive ? 'is-active' : ''}
+                                        >
                                                 {lnb1depth.name}
                                         </button>
                                             <LnbDepth2List className={index === isActive ? 'is-active' : ''}>
@@ -100,7 +133,7 @@ export default function Sidebar() {
                                     </LnbDepth1>
                                 ) : (
                                     <LnbDepth1 key={index}>
-                                        <button>
+                                        <button className={index === isActive ? 'is-active' : ''}>
                                             {lnb1depth.name}
                                         </button>
                                     </LnbDepth1>

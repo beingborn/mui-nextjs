@@ -110,31 +110,3 @@ h1, h2, h3, h4, h5, h6 {
 	height: 1px !important;
 	white-space: nowrap !important;
 }
-
-header {
-  background-color: aliceblue;
-  text-align: center;
-  font-weight: 700;
-}
-footer {
-  background-color: lightcoral;
-  text-align: center;
-  font-weight: 700;
-  font-size: 40px;
-  height: 200px;
-  align-content: center;
-}
-.about {
-  text-align: center;
-  font-weight: 700;
-  font-size: 40px;
-  height: 200px;
-  align-content: center;
-}
-.main {
-  text-align: center;
-  font-weight: 700;
-  font-size: 40px;
-  height: 200px;
-  align-content: center;
-}

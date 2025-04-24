@@ -2,6 +2,8 @@ export const root = {
     colors : {
         textPri : '#000',
         textSec : '#eee',
+        pri: '#2e80eb',
+        sec: '#d6e4fa',
     },
 
     background: {

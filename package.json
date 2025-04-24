@@ -19,8 +19,6 @@
     "styled-components": "^6.1.17"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "@svgr/webpack": "^8.1.0"
   }
 }
