@@ -1,21 +1,15 @@
 import { usePathname } from "next/navigation";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from '@mui/material/Link';
-import {getTitleText} from '../utils/getText'
+import {updatePathKor} from '../utils/getText'
 
 export default function Breadcrumb(){
     const paths = usePathname();
     const pathNames = paths.split("/").filter((path) => path && !path.includes('pages'))
 
-    const updatePathKor = (arr) => {
-        arr.map((item,i) => {
-            const pathKor = getTitleText(item);
-            arr[i] = pathKor;
-        })
-
-        return arr;
-    }
-    updatePathKor(pathNames)
+    // 전달 받은 array를 korea로 변경해서 반환하는 공통 함수
+    // 원본 Path를 보존한 형식 진행    
+    const pathNamesKor = updatePathKor(pathNames);
 
     return(
         <Breadcrumbs aria-label="breadcrumb" separator="›">
@@ -23,7 +17,7 @@ export default function Breadcrumb(){
                 Home
             </Link>
             {
-                pathNames.map((link, index) => {
+                pathNamesKor.map((link, index) => {
                     const isLast = index === pathNames.length - 1;
 
                     return isLast ? 

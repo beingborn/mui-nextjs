@@ -14,10 +14,22 @@ const titleMap = {
 
 }
 
+/** 
+ * 로직: 
+ * 1. 매개변수로 Array를 넣어 updatePathKor() 
+ * 2. Array Item 각각의 값을 titleMap에서 찾아서 한글로 변환해서 Return 
+ */
+
 export const getTitleText = (title) => {
     return titleMap[title] || '';
 }
 
-export default {
-    getTitleText
+export const updatePathKor = (arr) => {
+    return arr.map((item) => getTitleText(item));
 }
+
+export default {
+    getTitleText,
+    updatePathKor
+}
+
