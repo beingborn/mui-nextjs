@@ -14,7 +14,7 @@ const titleMap = {
 
 }
 
-function getTitleText(title) {
+export const getTitleText = (title) => {
     return titleMap[title] || '';
 }
 
