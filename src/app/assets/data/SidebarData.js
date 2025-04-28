@@ -1,4 +1,4 @@
-const LnbContent = [
+export const sidebarData = [
     { 
         name: '콘텐츠',   
         list : [
@@ -68,5 +68,3 @@ const LnbContent = [
         ]
     },
 ]
-
-export default LnbContent

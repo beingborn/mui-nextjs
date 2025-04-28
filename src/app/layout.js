@@ -6,7 +6,9 @@ import { useEffect, useState} from 'react'
 import "./globals.css";
 
 // Component
-import Sidebar from './layouts/Lnb/Sidebar';
+import Sidebar from './layouts/Sidebar/Sidebar';
+import {sidebarData} from './assets/data/SidebarData'
+
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Breadcrumb from './layouts/Breadcrumb';
@@ -49,7 +51,7 @@ export default function RootLayout({ children }) {
             <body className={pretendard.className}>
                 {isReady &&
                     <Wrapper minH={minH}>
-                        <Sidebar/>
+                        <Sidebar sidebarData={sidebarData}/>
                         <main>
                             <Header/>
                             <div className='inner'>
