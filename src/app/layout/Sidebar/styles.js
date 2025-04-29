@@ -59,14 +59,16 @@ export const SidebarDepth2List = styled.ul`
 `
 
 export const SidebarDepth2 = styled.li`
+    &.is-active {
+        a {
+            background-color: #2e80eb40;
+        }
+    }
+
     > a {
         display: block;
         line-height: 32px;
         padding: 0 16px;
-
-        &.is-active {
-            background-color: #2e80eb40;
-        }
 
         &:hover {
             background-color: #2e80eb40;

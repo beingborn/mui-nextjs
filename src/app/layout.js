@@ -6,12 +6,12 @@ import { useEffect, useState} from 'react'
 import "./globals.css";
 
 // Component
-import Sidebar from './layouts/Sidebar/Sidebar';
+import Sidebar from './layout/Sidebar/Sidebar';
 import {sidebarData} from './assets/data/SidebarData'
 
-import Header from './layouts/Header'
-import Footer from './layouts/Footer'
-import Breadcrumb from './layouts/Breadcrumb';
+import Header from './layout/Header'
+import Footer from './layout/Footer'
+import Breadcrumb from './layout/Breadcrumb';
 import Title from './components/Title'
 
 const pretendard = localFont({

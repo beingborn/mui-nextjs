@@ -10,7 +10,11 @@ const titleMap = {
 
     online   : '과정 개설',
     on_manage: '과정 운영',
-    students : '수강생 관리'
+    students : '수강생 관리',
+
+    ui       : 'ui',
+    tab      : '탭',
+    table    : '테이블',
 
 }
 

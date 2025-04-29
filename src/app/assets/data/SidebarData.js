@@ -58,12 +58,12 @@ export const sidebarData = [
         name: 'UI 컴포넌트',
         list : [
             {
-                name: 'Table',
-                href: '/pages/components/table'
+                name: 'Tab',
+                href: '/pages/ui/tab'
             },
             {
-                name: 'Tab',
-                href: '/pages/components/tab'
+                name: 'Table',
+                href: '/pages/ui/table'
             },
         ]
     },
