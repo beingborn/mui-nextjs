@@ -16,7 +16,7 @@ export default function SidebarItem({data, idx, depth1Active, depth2Active, dept
                 {data.name}
             </button>
                 {
-                    data.list && (
+                    data.list && (    
                         <SidebarDepth2List className={depth1Active.isActive === idx ? 'is-active' : ''}>
                             {
                                 data.list.map((item, index) => {

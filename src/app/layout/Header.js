@@ -1,5 +1,3 @@
-"use client"
-
 import styled from '@emotion/styled'
 import { root } from '../global-variables'
 import { IcoHamburger, IcoLogout } from '../assets/icons'
@@ -17,7 +15,7 @@ const HeaderTit = styled.h2`
 `
 
 const HeaderWrap = styled.div`
-    ${root.flexSet('center')}
+    ${root.flexSet('center`')}
     gap: 20px;
 `
 

@@ -9,7 +9,7 @@ function useActive(initialValue = null) {
     // 상태 동기화
     useEffect(() => {
         if(initialValue !== null && initialValue !== undefined) {
-            setIsActive(Number(initialValue))
+            setIsActive(initialValue)
         }
     }, [initialValue])
 

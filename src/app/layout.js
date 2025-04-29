@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
 import localFont from 'next/font/local'
 import styled from '@emotion/styled'
 import { useEffect, useState} from 'react'
-import "./globals.css";
+import './globals.css';
 
 // Component
 import Sidebar from './layout/Sidebar/Sidebar';
