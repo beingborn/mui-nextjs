@@ -1,3 +1,4 @@
+import { root } from '@/src/app/global-variables';
 import styled from '@emotion/styled';
 
 export const TableWrapper = styled.div`
@@ -7,6 +8,10 @@ export const TableWrapper = styled.div`
 
     &.col.clickable tbody tr {
         cursor: pointer;
+
+        &.is-active {
+            background-color: ${root.colors.textSec};
+        }
     }
 `;
 export const Table = styled.table`
