@@ -1,25 +1,26 @@
-/** 
+/**
  * 단일 책임 원칙
  * Styling 관리.
  */
 
-import styled from '@emotion/styled'
-import {root} from '../../global-variables'
+import styled from '@emotion/styled';
+import { root } from '../../global-variables';
 
 export const SidebarContainer = styled.aside`
     flex-basis: 260px;
+    flex-shrink: 0;
     background-color: #dbdfeb;
-`
+`;
 
 export const SidebarHeader = styled.div`
     padding: 24px;
     border-bottom: 1px solid ${root.colors.textPri};
     text-align: center;
-`
+`;
 
-export const SidebarBody = styled.div``
-export const SidebarNav = styled.div``
-export const SidebarDepth1List = styled.ul``
+export const SidebarBody = styled.div``;
+export const SidebarNav = styled.div``;
+export const SidebarDepth1List = styled.ul``;
 export const SidebarDepth1 = styled.li`
     &:not(:first-of-type) > button {
         border-top: 1px solid #000;
@@ -47,7 +48,7 @@ export const SidebarDepth1 = styled.li`
             color: #fff;
         }
     }
-`
+`;
 
 export const SidebarDepth2List = styled.ul`
     display: none;
@@ -56,7 +57,7 @@ export const SidebarDepth2List = styled.ul`
     &.is-active {
         display: block;
     }
-`
+`;
 
 export const SidebarDepth2 = styled.li`
     &.is-active {
@@ -74,7 +75,7 @@ export const SidebarDepth2 = styled.li`
             background-color: #2e80eb40;
         }
     }
-`
+`;
 
 export const LogoWrap = styled.div`
     gap: 8px;
@@ -88,4 +89,4 @@ export const LogoWrap = styled.div`
             font-size: 20px;
         }
     }
-`
+`;

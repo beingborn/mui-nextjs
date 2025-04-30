@@ -1,11 +1,11 @@
-import {css} from '@emotion/css'
-import styled from '@emotion/styled'
-import { usePathname } from "next/navigation";
-import { getTitleText } from '../utils/getText'
+import { css } from '@emotion/css';
+import styled from '@emotion/styled';
+import { usePathname } from 'next/navigation';
+import { getTitleText } from '../utils/getText';
 
 const TitleWrap = styled.div`
     margin-bottom: 8px;
-`
+`;
 
 const MainTitle = `
     font-size: 32px;
@@ -17,30 +17,37 @@ const SubTitle = `
     font-weight: 500;
 `;
 
-function getTitle(tit){
+function getTitle(tit) {
     switch (tit) {
         case 'main':
-        return MainTitle;
+            return MainTitle;
         case 'sub':
-        return SubTitle;
+            return SubTitle;
         default:
-        return MainTitle;
+            return MainTitle;
     }
 }
 
 // props로 variant main > 받으면 MainTitle sub > SubTitle 반환
-export default function Title({children, tit}) {
+export default function Title({ children, tit }) {
     const paths = usePathname();
-    const lastPath = paths.split("/").filter((path) => path).pop();
+    const lastPath = paths
+        .split('/')
+        .filter((path) => path)
+        .pop();
     const title = getTitleText(lastPath);
-    const textStyle = getTitle(tit)
-    
+    const textStyle = getTitle(tit);
+
     return (
         <TitleWrap>
-            <h2 className={css` ${textStyle} `}>
+            <h2
+                className={css`
+                    ${textStyle}
+                `}
+            >
                 {title}
                 {children}
             </h2>
         </TitleWrap>
-    )      
+    );
 }

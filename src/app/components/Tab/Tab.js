@@ -1,57 +1,49 @@
-"use client"
+'use client';
 
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { useState } from 'react';
+import styled from '@emotion/styled';
 
-import Tab from '@mui/material/Tab'
-import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 
-import { 
-    TabWrapper,
-    TabBody,
-    TabStyle
-} from './styles'
-
+import { TabWrapper, TabBody, TabStyle } from './styles';
 
 function allyProps(index) {
     return {
         id: `basic-tab-${index}`,
-        "aria-controls": `basic-tabpanel-${index}`,
+        'aria-controls': `basic-tabpanel-${index}`,
     };
 }
 
 function CustomTabPanel(props) {
-    const {children, value, index, ...other} = props;
+    const { children, value, index, ...other } = props;
 
     return (
         <TabWrapper
-            role='tabpanel'
+            role="tabpanel"
             hidden={value !== index}
             id={`basic-tabpanel-${index}`}
             aria-labelledby={`basic-tabpanel-${index}`}
             {...other}
-        > 
-            <TabBody>
-                {value === index && <div>{children}</div>}
-            </TabBody>
+        >
+            <TabBody>{value === index && <div>{children}</div>}</TabBody>
         </TabWrapper>
-    )    
+    );
 }
 
 const CustomTab = styled(Tab)`
-    /* 
-        all : initial; : MUI 전체 스타일 초기화
-    */
+    /* : MUI 전체 스타일 초기화 */
+    /* all: initial; */
     ${TabStyle}
-`
+`;
 
 export default function BasicTab() {
-    const [value, setValue] = useState('0') // 초기값 설정 : 1번 Active
+    const [value, setValue] = useState('0'); // 초기값 설정 : 1번 Active
 
     const handleChange = (event, newValue) => {
-        console.log(event)
+        console.log(event);
         setValue(newValue);
-    }
+    };
 
     return (
         <div>
@@ -59,6 +51,7 @@ export default function BasicTab() {
                 value={value}
                 onChange={handleChange}
                 aria-label="basic tabs"
+                sx={{ all: 'initial' }}
             >
                 <CustomTab label="Item 1" value="0" {...allyProps(0)} />
                 <CustomTab label="Item 2" value="1" {...allyProps(1)} />
