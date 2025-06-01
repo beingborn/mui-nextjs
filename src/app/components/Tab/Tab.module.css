@@ -1,0 +1,5 @@
+@layer {
+    .tab-content {
+        @apply text-blue-500;
+    }
+}
