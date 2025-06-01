@@ -35,6 +35,7 @@ export default function Page() {
         }
 
         FetchUser();
+        console.log(error);
     }, []);
 
     if (loading) return <div>Loading...</div>;
